@@ -8,3 +8,5 @@
     `cd ~/.vim`
     `git submodule init`
     `git submodule update`
+
+see http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
