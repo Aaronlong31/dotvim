@@ -122,6 +122,7 @@ nnoremap <C-k> <C-w>k
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'taglist'
 Bundle 'fugitive'
 Bundle 'AutoComplPop'

@@ -22,3 +22,6 @@
 [submodule "bundle/WebAPI.vim"]
 	path = bundle/WebAPI.vim
 	url = https://github.com/vim-scripts/WebAPI.vim.git
+[submodule "bundle/markdown"]
+	path = bundle/markdown
+	url = https://github.com/plasticboy/vim-markdown.git
