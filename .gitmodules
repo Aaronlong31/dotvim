@@ -16,3 +16,9 @@
 [submodule "bundle/L9"]
 	path = bundle/L9
 	url = https://github.com/vim-scripts/L9.git
+[submodule "bundle/AutoComplPop"]
+	path = bundle/AutoComplPop
+	url = https://github.com/vim-scripts/AutoComplPop.git
+[submodule "bundle/WebAPI.vim"]
+	path = bundle/WebAPI.vim
+	url = https://github.com/vim-scripts/WebAPI.vim.git

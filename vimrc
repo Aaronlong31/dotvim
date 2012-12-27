@@ -122,6 +122,8 @@ nnoremap <C-k> <C-w>k
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'taglist'
+Bundle 'fugitive'
 Bundle 'AutoComplPop'
 Bundle 'The-NERD-tree'
 Bundle 'Tagbar'
