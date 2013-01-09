@@ -87,7 +87,6 @@ set matchtime=1
 set listchars=tab:>-,trail:-
 " set nowrap
 call pathogen#infect()
-colorscheme github
 " 自动切换当前目录为当前文件所在的目录
 set autochdir
 set smartcase
@@ -103,7 +102,7 @@ if has("unix")
 	nmap <leader>e :tabnew $HOME/.vimrc<cr>
 	let $VIMFILES = $HOME."/.vim"
 else
-	nmap <leader>e :tabnew $VIM/_vimrc<cr>
+	nmap <leader>e :tabnew $HOME\vimfiles\vimrc<cr>
 	let $VIMFILES = $VIM."/vimfiles"
 endif
 
@@ -124,12 +123,16 @@ nnoremap <C-k> <C-w>k
 " inoremap " ""<left>
 " inoremap ' ''<left>
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has("unix")
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+else 
+    set rtp+=~/vimfiles/bundle/vundle/
+    call vundle#rc('$HOME/vimfiles/bundle/')
+endif
 Bundle 'gmarik/vundle'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'taglist'
-Bundle 'fugitive'
+Bundle 'tpope/vim-fugitive'
 Bundle 'AutoComplPop'
 Bundle 'The-NERD-tree'
 Bundle 'Tagbar'
@@ -140,14 +143,18 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'WebAPI.vim'
 Bundle 'Gist.vim'
+Bundle 'vim-java-sql'
+Bundle 'SQLUtilities'
+Bundle 'bufexplorer.zip'
+
 filetype plugin indent on 
 "let g:AutoComplPop_IgnoreCaseOption = 1
 "set ignorecase
 "let g:acp_behaviorKeywordCommand = "\<C-x>\<C-o>"
-let g:NERDTreeWinSize = 20
+let g:NERDTreeWinSize = 50
 let g:tagbar_width = 20
-"set t_Co=256
-"colorscheme molokai
+set t_Co=256
+colorscheme molokai
 let g:use_zen_expandabbr_key='<S-O>'
 let g:use_zen_complete_tag = 1
 
@@ -156,6 +163,4 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 
 map <C-P> :FufCoverageFile<CR>
 map! <C-P> :FufCoverageFile<CR>
-
 autocmd BufNewFile,BufRead *.json set ft=json
-
