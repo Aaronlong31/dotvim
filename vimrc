@@ -129,6 +129,8 @@ if has("unix")
 else 
     set rtp+=~/vimfiles/bundle/vundle/
     call vundle#rc('$HOME/vimfiles/bundle/')
+    set t_Co=256
+    colorscheme molokai
 endif
 Bundle 'gmarik/vundle'
 Bundle 'plasticboy/vim-markdown'
@@ -153,8 +155,6 @@ filetype plugin indent on
 "let g:acp_behaviorKeywordCommand = "\<C-x>\<C-o>"
 let g:NERDTreeWinSize = 50
 let g:tagbar_width = 20
-set t_Co=256
-colorscheme molokai
 let g:use_zen_expandabbr_key='<S-O>'
 let g:use_zen_complete_tag = 1
 
