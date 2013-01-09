@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/zhanglong/tools/eclipse/links'
-let g:netrw_dirhist_2='/home/zhanglong'
-let g:netrw_dirhist_3='/home/zhanglong/.oh-my-zsh'
-let g:netrw_dirhist_4='/home/zhanglong/.vim/autoload'
