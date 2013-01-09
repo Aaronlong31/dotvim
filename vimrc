@@ -142,12 +142,14 @@ Bundle 'minibufexpl.vim'
 Bundle 'molokai'
 Bundle 'ZenCoding.vim'
 Bundle 'L9'
+Bundle 'jQuery'
 Bundle 'FuzzyFinder'
 Bundle 'WebAPI.vim'
 Bundle 'Gist.vim'
 Bundle 'vim-java-sql'
 Bundle 'SQLUtilities'
 Bundle 'bufexplorer.zip'
+Bundle 'YankRing.vim'
 
 filetype plugin indent on 
 "let g:AutoComplPop_IgnoreCaseOption = 1
