@@ -106,6 +106,11 @@ else
 	nmap <leader>e :tabnew $VIM/_vimrc<cr>
 	let $VIMFILES = $VIM."/vimfiles"
 endif
+
+if has("unix")
+    nmap <leader>j :%!python -m json.tool<cr>
+endif
+
 " 窗口切换
 nnoremap <c-h> <c-w>h
 nnoremap <C-l> <C-w>l
@@ -152,4 +157,5 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 map <C-P> :FufCoverageFile<CR>
 map! <C-P> :FufCoverageFile<CR>
 
+autocmd BufNewFile,BufRead *.json set ft=json
 
