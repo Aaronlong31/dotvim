@@ -138,7 +138,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'AutoComplPop'
 Bundle 'The-NERD-tree'
 Bundle 'Tagbar'
-Bundle 'minibufexpl.vim'
+Bundle 'taglist.vim'
+" Bundle 'minibufexpl.vim'
 Bundle 'molokai'
 Bundle 'ZenCoding.vim'
 Bundle 'L9'
@@ -166,3 +167,4 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 map <C-P> :FufCoverageFile<CR>
 map! <C-P> :FufCoverageFile<CR>
 autocmd BufNewFile,BufRead *.json set ft=json
+autocmd BufNewFile,BufRead *.gradle set ft=groovy
