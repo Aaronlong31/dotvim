@@ -52,7 +52,7 @@ let &termencoding=&encoding
 " 设置文件编码
 set fileencodings=utf-8,gbk
 " 设置字体
-set guifont=Consolas:h12:cANSI
+set guifont=Monospace\ 12,Source\ Code\ Pro\ 12,Consolas:h12:cANSI
 " 用4个空格代替TAB
 set expandtab
 set tabstop=4
@@ -115,13 +115,6 @@ nnoremap <c-h> <c-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-" 自动补全配对符号
-" inoremap ( ()<left>
-" inoremap < <><left>
-" inoremap [ []<left>
-" inoremap { {}<left>
-" inoremap " ""<left>
-" inoremap ' ''<left>
 
 if has("unix")
     set rtp+=~/.vim/bundle/vundle/
@@ -137,6 +130,8 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 Bundle 'AutoComplPop'
 Bundle 'The-NERD-tree'
+Bundle 'The-NERD-Commenter'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'Tagbar'
 Bundle 'taglist.vim'
 " Bundle 'minibufexpl.vim'
@@ -153,6 +148,9 @@ Bundle 'bufexplorer.zip'
 Bundle 'YankRing.vim'
 Bundle 'Google-translator'
 Bundle 'Vimpanel'
+Bundle 'AutoClose'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'skammer/vim-css-color'
 
 filetype plugin indent on 
 "let g:AutoComplPop_IgnoreCaseOption = 1
