@@ -51,6 +51,7 @@ set nobackup
 let &termencoding=&encoding
 " 设置文件编码
 set fileencodings=utf-8,gbk
+" set encoding=utf-8
 " 设置字体
 set guifont=Consolas:h12:cANSI
 " 用4个空格代替TAB
@@ -126,6 +127,9 @@ nnoremap <C-k> <C-w>k
 if has("unix")
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
+    Bundle 'taglist.vim'
+    let g:tagbar_width = 20
+    Bundle 'Tagbar'
 else 
     set rtp+=~/vimfiles/bundle/vundle/
     call vundle#rc('$HOME/vimfiles/bundle/')
@@ -137,8 +141,6 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 Bundle 'AutoComplPop'
 Bundle 'The-NERD-tree'
-Bundle 'Tagbar'
-Bundle 'taglist.vim'
 " Bundle 'minibufexpl.vim'
 Bundle 'molokai'
 Bundle 'ZenCoding.vim'
@@ -153,13 +155,13 @@ Bundle 'bufexplorer.zip'
 Bundle 'YankRing.vim'
 Bundle 'Google-translator'
 Bundle 'Vimpanel'
+Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on 
 "let g:AutoComplPop_IgnoreCaseOption = 1
 "set ignorecase
 "let g:acp_behaviorKeywordCommand = "\<C-x>\<C-o>"
 let g:NERDTreeWinSize = 50
-let g:tagbar_width = 20
 let g:use_zen_expandabbr_key='<S-O>'
 let g:use_zen_complete_tag = 1
 
@@ -180,3 +182,7 @@ augroup json_autocmd
     autocmd FileType json set foldmethod=syntax 
 augroup END 
 autocmd BufNewFile,BufRead *.gradle set ft=groovy
+"powerline{
+let g:Powerline_symbols = 'fancy'
+"}
+
