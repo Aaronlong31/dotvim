@@ -1,22 +1,3 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
-" /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing debian.vim since it alters the value of the
-" 'compatible' option.
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
-if has("syntax")
-  syntax on
-endif
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 "set background=dark
@@ -44,6 +25,7 @@ endif
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
+set laststatus=2
 " 设置行号
 set nu
 " 不生成备份文件
@@ -52,7 +34,7 @@ let &termencoding=&encoding
 " 设置文件编码
 set fileencodings=utf-8,gbk
 " 设置字体
-set guifont=Monospace\ 12,Source\ Code\ Pro\ 12,Consolas:h12:cANSI
+" set guifont=Monospace\ 12,Source\ Code\ Pro\ 12,Consolas:h12:cANSI
 " 用4个空格代替TAB
 set expandtab
 set tabstop=4
@@ -86,7 +68,6 @@ set matchtime=1
 " TAB会被显示成">---"("-"的个数不一定)，而行尾多余的空白字符显示成"-"
 set listchars=tab:>-,trail:-
 " set nowrap
-call pathogen#infect()
 " 自动切换当前目录为当前文件所在的目录
 set autochdir
 set smartcase
@@ -119,7 +100,7 @@ nnoremap <C-k> <C-w>k
 if has("unix")
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
-else 
+else
     set rtp+=~/vimfiles/bundle/vundle/
     call vundle#rc('$HOME/vimfiles/bundle/')
     set t_Co=256
@@ -128,38 +109,75 @@ endif
 Bundle 'gmarik/vundle'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-fugitive'
-Bundle 'AutoComplPop'
-Bundle 'The-NERD-tree'
-Bundle 'The-NERD-Commenter'
-" Bundle 'Valloric/YouCompleteMe'
 Bundle 'Tagbar'
 Bundle 'taglist.vim'
-" Bundle 'minibufexpl.vim'
 Bundle 'molokai'
-Bundle 'ZenCoding.vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'L9'
 Bundle 'jQuery'
 Bundle 'FuzzyFinder'
 Bundle 'WebAPI.vim'
 Bundle 'Gist.vim'
 Bundle 'vim-java-sql'
-Bundle 'SQLUtilities'
-Bundle 'bufexplorer.zip'
 Bundle 'YankRing.vim'
-Bundle 'Google-translator'
-Bundle 'Vimpanel'
 Bundle 'AutoClose'
 Bundle 'Lokaltog/vim-easymotion'
+let g:EasyMotion_leader_key = 'f'
+
+Bundle 'Lokaltog/powerline'
+"if want to use fancy,need to add font patch -> git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
+"let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'unicode'
+
+Bundle 'bling/vim-airline'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
 Bundle 'skammer/vim-css-color'
+Bundle 'terryma/vim-expand-region'
+Bundle 'tomasr/molokai'
+colorscheme molokai
+
+Bundle 'scrooloose/syntastic'
+let g:syntastic_error_symbol='>>'
+let g:syntastic_warning_symbol='>'
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_highlighting = 0
+"let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
+let g:syntastic_python_checkers=['pyflakes']
+highlight SyntasticErrorSign guifg=white guibg=black
+
+" python fly check, 弥补syntastic只能打开和保存才检查语法的不足
+Bundle 'kevinw/pyflakes-vim'
+let g:pyflakes_use_quickfix = 0
+
+
+"################# 具体语言语法高亮 ###############
+
+" for python.vim syntax highlight
+Bundle 'hdima/python-syntax'
+let python_highlight_all = 1
 
 filetype plugin indent on 
 "let g:AutoComplPop_IgnoreCaseOption = 1
 "set ignorecase
 "let g:acp_behaviorKeywordCommand = "\<C-x>\<C-o>"
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
+map <S-m> <plug>NERDTreeTabsToggle<CR>
 let g:NERDTreeWinSize = 50
 let g:tagbar_width = 20
 let g:use_zen_expandabbr_key='<S-O>'
 let g:use_zen_complete_tag = 1
+
+Bundle 'Shougo/neocomplcache'
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_camel_case_completion = 1
 
 let g:gist_detect_filetype = 1
 let g:gist_clip_command = 'xclip -selection clipboard'
